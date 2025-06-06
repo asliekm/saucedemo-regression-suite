@@ -1,0 +1,60 @@
+# Build outputs
+/target/
+/build/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+out/
+
+# VS Code
+.vscode/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Java specific
+*.class
+*.jar
+*.war
+*.ear
+
+# Test reports
+/test-output/
+/surefire-reports/
+/allure-results/
+/allure-report/
+
+# Selenium screenshots
+screenshots/
+
+# Environment / secrets
+.env
+*.key
+*.pem
+
+# Node/npm if frontend included
+node_modules/
+dist/
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+# Coverage / reports
+coverage/
+jacoco.exec
+
+# Git
+*.orig
