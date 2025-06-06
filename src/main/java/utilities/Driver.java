@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.time.Duration;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * Created by Asli Ekmekci
@@ -25,14 +26,17 @@ public class Driver {
             ChromeOptions options = new ChromeOptions();
 
             options.addArguments("--disable-infobars");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--no-sandbox");
             options.addArguments("--disable-notifications");
             options.addArguments("--disable-popup-blocking");
+            options.addArguments("--disable-dev-shm-usage");
             options.addArguments("--remote-allow-origins=*");
             options.addArguments("--disable-blink-features=AutomationControlled");
             options.addArguments("--incognito");
+            options.addArguments("--user-data-dir=/tmp/unique-profile-" + UUID.randomUUID());
             options.setExperimentalOption("excludeSwitches", List.of("enable-automation"));
             options.setExperimentalOption("useAutomationExtension", false);
-
             options.setExperimentalOption("prefs", Map.of(
                     "credentials_enable_service", false,
                     "profile.password_manager_enabled", false,
