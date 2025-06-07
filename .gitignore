@@ -58,3 +58,4 @@ jacoco.exec
 
 # Git
 *.orig
+.allure/
