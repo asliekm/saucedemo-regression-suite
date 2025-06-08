@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -38,21 +39,14 @@ public abstract class BasePage {
         wait.until(ExpectedConditions.visibilityOf(element)).sendKeys(text);
     }
 
-    public String getText(WebElement element) {
-        return wait.until(ExpectedConditions.visibilityOf(element)).getText();
-    }
-
-    public String getCurrentUrl() {
-        return driver.getCurrentUrl();
-    }
-
     public boolean isElementVisible(WebElement element) {
         try {
-            return element.isDisplayed();
-        } catch (NoSuchElementException e) {
+            return element != null && element.isDisplayed();
+        } catch (NoSuchElementException | StaleElementReferenceException e) {
             return false;
         }
     }
+
 
     public String getElementText(WebElement element) {
         try {
@@ -64,6 +58,15 @@ public abstract class BasePage {
 
     public void waitUntilAllVisible(List<WebElement> elements) {
         wait.until(ExpectedConditions.visibilityOfAllElements(elements));
+    }
+
+    public void waitForVisibility(WebElement element, int seconds) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public void waitForVisibility(WebElement element) {
+        waitForVisibility(element, 10);
     }
 
     public String getExpectedUrlForPage(String pageName) {

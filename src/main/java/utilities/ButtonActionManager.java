@@ -1,7 +1,7 @@
 package utilities;
 
 import pages.CartPage;
-import pages.LoginPage;
+import pages.CheckoutPage;
 import pages.ProductsPage;
 
 import java.util.HashMap;
@@ -11,10 +11,11 @@ public class ButtonActionManager {
 
     private final Map<String, Runnable> buttonActions = new HashMap<>();
 
-    public ButtonActionManager(ProductsPage productsPage, CartPage cartPage, LoginPage loginPage) {
+    public ButtonActionManager(ProductsPage productsPage, CartPage cartPage, CheckoutPage checkoutPage) {
 
         buttonActions.put("cart", productsPage::clickCartButton);
         buttonActions.put("checkout", cartPage::clickCheckoutButton);
+        buttonActions.put("continue", checkoutPage::clickContinueButton);
 
     }
 
