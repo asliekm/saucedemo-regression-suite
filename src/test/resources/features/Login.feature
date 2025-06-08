@@ -7,7 +7,7 @@ Feature: Login Functionality
 
     Example: Login with standard user
       When I enter username "standard_user" and password "secret_sauce"
-      Then I should see the "products" page
+      Then I should see the products page
 
   Rule: Invalid users should not be able to log in
 
