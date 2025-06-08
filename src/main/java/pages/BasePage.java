@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.Driver;
+import utilities.PropManager;
 
 import java.time.Duration;
 import java.util.List;
@@ -27,7 +28,7 @@ public abstract class BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(element));
         wait.until(ExpectedConditions.visibilityOf(element));
         try {
-            Thread.sleep(200);
+            Thread.sleep(2000);
         } catch (InterruptedException ignored) {
         }
         element.click();
@@ -64,4 +65,25 @@ public abstract class BasePage {
     public void waitUntilAllVisible(List<WebElement> elements) {
         wait.until(ExpectedConditions.visibilityOfAllElements(elements));
     }
+
+    public String getExpectedUrlForPage(String pageName) {
+        switch (pageName.trim().toLowerCase()) {
+            case "products":
+                return PropManager.get("products");
+            case "cart":
+                return PropManager.get("cart");
+            case "login":
+                return PropManager.get("login");
+            case "checkout: your information":
+                return PropManager.get("checkout_your_information");
+            case "checkout: overview":
+                return PropManager.get("checkout_overview");
+            case "checkout: complete":
+                return PropManager.get("checkout_complete");
+            default:
+                throw new IllegalArgumentException("Unknown page: " + pageName);
+        }
+    }
+
+
 }
