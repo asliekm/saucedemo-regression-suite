@@ -20,7 +20,7 @@ public class ProductsPage extends BasePage {
     @FindBy(css = "[data-test='shopping-cart-badge']")
     private WebElement cartBadge;
     @FindBy(css = "[data-test='shopping-cart-link']")
-    private WebElement cartIcon;
+    private WebElement addToCartIcon;
 
     public ProductsPage() {
         super();
@@ -92,10 +92,6 @@ public class ProductsPage extends BasePage {
         } catch (Exception e) {
             return "0";
         }
-    }
-
-    public void clickCartButton() {
-        waitAndClick(cartIcon);
     }
 
 
