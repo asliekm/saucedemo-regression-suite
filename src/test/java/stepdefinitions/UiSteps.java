@@ -6,10 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
-import pages.BasePage;
-import pages.CartPage;
-import pages.LoginPage;
-import pages.ProductsPage;
+import pages.*;
 import utilities.ButtonActionManager;
 import utilities.Driver;
 import utilities.PropManager;
@@ -18,7 +15,8 @@ public class UiSteps extends BasePage {
     LoginPage loginPage = new LoginPage();
     ProductsPage productsPage = new ProductsPage();
     CartPage cartPage = new CartPage();
-    ButtonActionManager buttonActionManager = new ButtonActionManager(productsPage, cartPage, loginPage);
+    CheckoutPage checkoutPage = new CheckoutPage();
+    ButtonActionManager buttonActionManager = new ButtonActionManager(productsPage, cartPage, checkoutPage);
 
     @Step("Navigate to login page: {baseUrl}")
     @Given("I am on the login page")
@@ -94,4 +92,11 @@ public class UiSteps extends BasePage {
     }
 
 
+    @When("When I fill in the checkout form with valid data")
+    public void whenIFillInTheCheckoutFormWithValidData() {
+        String firstName = PropManager.get("checkout.firstname");
+        String lastName = PropManager.get("checkout.lastname");
+        String zip = PropManager.get("checkout.zip");
+        checkoutPage.fillForm(firstName, lastName, zip);
+    }
 }
