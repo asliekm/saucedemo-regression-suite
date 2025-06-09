@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utilities.Constants;
 
 import java.time.Duration;
 import java.util.List;
@@ -27,16 +28,11 @@ public class ProductsPage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    /**
-     * Returns number of product cards
-     */
+
     public List<WebElement> getAllProductCards() {
         return productCards;
     }
 
-    /**
-     * Adds product to cart using inner elements of each product card
-     */
     public void addToCart(String productName) {
         for (WebElement card : productCards) {
             List<WebElement> nameElements = card.findElements(By.cssSelector("[data-test='inventory-item-name']"));
@@ -44,8 +40,7 @@ public class ProductsPage extends BasePage {
 
             WebElement nameElement = nameElements.get(0);
             String actualName = nameElement.getText().trim();
-            System.out.println("Detected product: " + actualName);
-
+            
             if (actualName.equalsIgnoreCase(productName.trim())) {
                 WebElement addButton = card.findElement(By.cssSelector("button"));
                 waitAndClick(addButton);
@@ -64,9 +59,7 @@ public class ProductsPage extends BasePage {
         };
     }
 
-    /**
-     * Removes product from cart using inner elements of each product card
-     */
+
     public void removeFromCart(String productName) {
         for (WebElement card : productCards) {
             WebElement nameElement = card.findElement(org.openqa.selenium.By.cssSelector(".inventory_item_name"));
@@ -98,5 +91,13 @@ public class ProductsPage extends BasePage {
         waitAndClick(cartIcon);
     }
 
+    private String toIdFormat(String productName) {
+        return productName.toLowerCase().replaceAll(" ", "-");
+    }
 
+    public void clickRemoveButton(String productName) {
+        String dataTest = String.format(Constants.REMOVE_BUTTON_DATA_TEST_PATTERN, toIdFormat(productName));
+        WebElement removeButton = driver.findElement(By.cssSelector("button[data-test='" + dataTest + "']"));
+        waitAndClick(removeButton);
+    }
 }
