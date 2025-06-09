@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -38,7 +39,9 @@ public class LoginPage extends BasePage {
         return isElementVisible(errorMessage);
     }
 
-    public String getErrorMessageText() {
-        return getElementText(errorMessage);
+    public String getLoginErrorMessage() {
+        WebElement errorElement = driver.findElement(By.cssSelector("h3[data-test='error']"));
+        return errorElement.getText();
     }
+
 }
