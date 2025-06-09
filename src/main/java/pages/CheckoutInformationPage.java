@@ -4,8 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CheckoutPage extends BasePage {
-    public CheckoutPage() {
+public class CheckoutInformationPage extends BasePage {
+    public CheckoutInformationPage() {
         super();
         PageFactory.initElements(driver, this);
     }
@@ -33,18 +33,6 @@ public class CheckoutPage extends BasePage {
         lastNameInput.sendKeys(lastName);
         zipCodeInput.clear();
         zipCodeInput.sendKeys(zip);
-    }
-
-    public void clickContinue() {
-        continueButton.click();
-    }
-
-    public String getErrorMessage() {
-        return errorMessage.getText();
-    }
-
-    public boolean isErrorMessageDisplayed() {
-        return errorMessage.isDisplayed();
     }
 
     public void clickContinueButton() {
