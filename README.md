@@ -5,6 +5,7 @@ Tests are written in Java using Cucumber and Selenium WebDriver with Page Object
 
 ## Project Structure
 
+```
 root
 ├── src
 │   ├── main
@@ -28,7 +29,7 @@ root
 ├── pom.xml
 ├── .github
 └── .allure
-
+```
 
 
 ## Features
