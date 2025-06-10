@@ -1,7 +1,7 @@
 # Saucedemo Regression Suite
 
 This project contains automated regression tests for [SauceDemo](https://www.saucedemo.com/).
-Tests are written in Java using Cucumber and Selenium WebDriver with Page Object Design.
+Tests are written in Java using Cucumber and Selenium WebDriver with Page-Object-Pattern.
 
 ## Project Structure
 
