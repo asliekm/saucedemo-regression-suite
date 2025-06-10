@@ -3,6 +3,34 @@
 This project contains automated regression tests for [SauceDemo](https://www.saucedemo.com/).
 Tests are written in Java using Cucumber and Selenium WebDriver with Page Object Design
 
+## Project Structure
+
+root
+├── src
+│   ├── main
+│   │   └── java
+│   │       ├── pages
+│   │       ├── utilities
+│   │       └── org/example
+│   └── test
+│       ├── java
+│       │   ├── hooks
+│       │   ├── runners
+│       │   ├── stepdefinitions
+│       │   └── org/data
+│       └── resources
+│           └── features
+├── target
+│   ├── allure-results
+│   ├── allure-report
+│   ├── cucumber-report
+│   └── surefire-reports
+├── pom.xml
+├── .github
+└── .allure
+
+
+
 ## Features
 
 - Comprehensive tests for login, product, cart, and checkout flows
@@ -34,6 +62,30 @@ Tests are written in Java using Cucumber and Selenium WebDriver with Page Object
   ```sh
   mvn test -Dcucumber.filter.tags="@regression"
   ```
+#  Regression Test Suite
+
+This project includes an **automated regression test suite** executed and reported using **Allure**. Below are the main features covered:
+
+##  Covered Modules
+
+### 🛒 Cart Functionality
+- Verify cart is empty when no products are added
+- Add and remove products (e.g., Bike Light, Fleece Jacket)
+
+###  Checkout – Your Information Step
+- Fill in and submit valid checkout information
+
+###  Checkout Overview – Order Summary Validations
+- Ensure price calculations are correct for different carts
+- Verify listed products in the summary
+- Validate payment and shipping details
+- Complete the full order process successfully
+
+### 🔐 Login Functionality
+- Login scenarios: empty fields, locked user, standard user, invalid credentials
+
+###  Product Listing
+- Add and remove products from the listing page
 
 ## 📊 Allure Report
 
