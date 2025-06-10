@@ -36,7 +36,7 @@ Allure is used for rich test reporting.
   mvn test -Dcucumber.filter.tags="@regression"
   ```
 
-## Allure Report
+## 📊 Allure Report
 
 1. After running tests:
    ```sh
@@ -47,6 +47,12 @@ Allure is used for rich test reporting.
    allure generate target/allure-results -o target/allure-report --clean
    allure open target/allure-report
    ```
+
+You can view the latest Allure test report online here:  
+👉 [https://asliekm.github.io/saucedemo-regression-suite/](https://asliekm.github.io/saucedemo-regression-suite/)
+
+
+> If the report does not display correctly, please refresh the page or try a different browser.
 ![Test Result 1](https://github.com/asliekm/saucedemo-regression-suite/blob/dev/images/%7B41E93C20-909A-4D0D-847A-EB61AECEE64C%7D.png?raw=true)
 
 
