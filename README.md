@@ -58,10 +58,6 @@ Allure is used for rich test reporting.
   # Then go to http://localhost:8000/index.html in your browser
   ```
 
-## Contributing
-
-Feel free to fork the repo and submit pull requests.
-
 ## License
 
 MIT License
