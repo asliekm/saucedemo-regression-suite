@@ -1,4 +1,4 @@
-@cart
+@regression @cart
 Feature: Cart Functionality
 
   Background:
@@ -6,6 +6,7 @@ Feature: Cart Functionality
 
   Rule: Adding products to the cart
 
+    @regression
     Scenario Outline: User can add a product to the cart and see correct details
       When I add the product "<product>" to the cart
       And I click the "cart" button
@@ -20,6 +21,7 @@ Feature: Cart Functionality
 
   Rule: Removing products from the cart
 
+    @regression
     Scenario Outline: User can remove a product from the cart
       When I add the product "<product>" to the cart
       And I click the "cart" button
@@ -33,6 +35,7 @@ Feature: Cart Functionality
 
   Rule: Cart state with no products
 
+    @regression
     Scenario: Cart is empty if no product is added
       When I click the "cart" button
       Then The cart should be empty

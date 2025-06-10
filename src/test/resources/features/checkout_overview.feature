@@ -1,3 +1,4 @@
+@regression
 Feature: Checkout Overview - Order Summary Validations
 
   Background:
@@ -5,7 +6,7 @@ Feature: Checkout Overview - Order Summary Validations
 
   Rule: Order summary calculations
 
-    @order-summary
+    @regression @order-summary
     Scenario Outline: The checkout overview calculations should be correct for various carts
       When I add the product "<product1>" to the cart
       And I add the product "<product2>" to the cart
@@ -21,19 +22,19 @@ Feature: Checkout Overview - Order Summary Validations
 
   Rule: Order summary details
 
-    @order-summary
+    @regression @order-summary
     Scenario: The correct products are listed in the order summary
       When I add the product "Sauce Labs Bike Light" to the cart
       And I go to the checkout overview page
       Then I should see "Sauce Labs Bike Light" in the product summary
 
-    @order-summary
+    @regression @order-summary
     Scenario: The payment information should be correct
       When I add the product "Sauce Labs Bike Light" to the cart
       And I go to the checkout overview page
       Then The payment information should be "SauceCard #31337"
 
-    @order-summary
+    @regression @order-summary
     Scenario: The shipping information should be correct
       When I add the product "Sauce Labs Bike Light" to the cart
       And I go to the checkout overview page
@@ -41,7 +42,7 @@ Feature: Checkout Overview - Order Summary Validations
 
   Rule: Completing the order
 
-    @order-summary
+    @regression @order-summary
     Scenario: User should be able to complete the order
       When I add the product "Sauce Labs Bike Light" to the cart
       And I go to the checkout overview page

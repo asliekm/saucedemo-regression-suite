@@ -1,4 +1,4 @@
-@product
+@regression @product
 Feature: Product Listing and Cart Functionality
 
   Background:
@@ -7,6 +7,7 @@ Feature: Product Listing and Cart Functionality
 
   Rule: Add and remove functionality in product page
 
+    @regression
     Scenario Outline: Add and remove single product from cart
       When I add the product "<product>" to the cart
       Then the cart icon should show "<afterAdd>"
