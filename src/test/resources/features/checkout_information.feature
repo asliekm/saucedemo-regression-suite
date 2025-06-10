@@ -1,3 +1,4 @@
+@regression
 Feature: Checkout - Your Information Step
 
   Background:
@@ -11,6 +12,7 @@ Feature: Checkout - Your Information Step
 
   Rule: Completing checkout information
 
+    @regression
     Scenario: User completes checkout information with valid data
       When I fill in the checkout form with valid data
       And I click the "Continue" button

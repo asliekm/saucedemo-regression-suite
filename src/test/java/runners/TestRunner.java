@@ -14,6 +14,6 @@ import org.junit.platform.suite.api.Suite;
         value = "pretty, html:target/cucumber-report/report.html, json:target/cucumber-report/report.json, io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
 )
 @ConfigurationParameter(key = Constants.FEATURES_PROPERTY_NAME, value = "src/test/resources/features")
-//@ConfigurationParameter(key = Constants.FILTER_TAGS_PROPERTY_NAME, value = "@smoke or @regression")
+@ConfigurationParameter(key = Constants.FILTER_TAGS_PROPERTY_NAME, value = "@regression")
 public class TestRunner {
 }

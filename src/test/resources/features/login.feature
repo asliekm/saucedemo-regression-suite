@@ -1,4 +1,4 @@
-@login
+@regression @login
 Feature: Login Functionality
 
   Background:
@@ -6,12 +6,14 @@ Feature: Login Functionality
 
   Rule: Valid users should be able to log in
 
+    @regression
     Example: Login with standard user
       When I enter username "standard_user" and password "secret_sauce"
       Then I should see the "products" page
 
   Rule: Invalid users should not be able to log in
 
+    @regression
     Example: Login with locked out user
       When I enter username "locked_out_user" and password "secret_sauce"
       Then I should see the "locked out user" error message
